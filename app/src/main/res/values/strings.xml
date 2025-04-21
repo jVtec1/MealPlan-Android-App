@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">android_project_final</string>
+    <string name="welcome_user">Welcome User!</string>
+    <string name="find_a_meal">Find a Meal:</string>
+    <string name="add_a_meal">Add a Meal:</string>
+    <string name="search_for_a_meal">Search for a Meal</string>
+    <string name="add_a_new_meal">Add a new Meal</string>
+    <string name="log">Log</string>
+    <string name="admin_area">Admin Area!</string>
+
 </resources>
