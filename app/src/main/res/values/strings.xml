@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">android_project_final</string>
+    <string name="preference_file_key">daclinkPreferenceFileNameMealPlannerApp</string>
+    <string name="preference_userId_key">daclinkPreferenceUserIdKeyMealPlannerApp</string>
 </resources>
