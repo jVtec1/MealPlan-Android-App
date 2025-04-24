@@ -17,9 +17,6 @@ import com.example.android_project_final.database.entities.User;
 import com.example.android_project_final.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
-    EditText username, password;
-    //TextView appTitle;
-    Button loginBtn;
 
     public static final String TAG = "DAC_MealPlanner";
     static final String MAIN_ACTIVITY_USER_ID = "com.example.android_project_final.MAIN_ACTIVITY_USER_ID";
