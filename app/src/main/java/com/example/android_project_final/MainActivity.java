@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
 
         repository = ApplicationRepository.getRepository(getApplication());
         loginUser(savedInstanceState);
-        updateSharedPreference();
 
 
         binding.signUpButton.setOnClickListener(new View.OnClickListener(){
@@ -54,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         if(loggedInUserId != -1){
-            startActivity(LandingActivity.landingActivityIntentFactory(getApplicationContext(),user.getId()));
+            startActivity(LandingActivity.landingActivityIntentFactory(getApplicationContext(), loggedInUserId));
         }
     }
 
@@ -81,21 +80,6 @@ public class MainActivity extends AppCompatActivity {
                 invalidateOptionsMenu();
             }
         });
-    }
-
-    @Override
-    protected void onSaveInstanceState(@NonNull Bundle outState){
-        super.onSaveInstanceState(outState);
-        outState.putInt(SAVED_INSTANCE_STATE_USERID_KEY, loggedInUserId);
-        updateSharedPreference();
-    }
-
-    private void updateSharedPreference(){
-        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(getString(R.string.preference_file_key),
-                Context.MODE_PRIVATE);
-        SharedPreferences.Editor sharedPrefEditor= sharedPreferences.edit();
-        sharedPrefEditor.putInt(getString(R.string.preference_userId_key),loggedInUserId);
-        sharedPrefEditor.apply();
     }
 
     static Intent mainActivityIntentFactory(Context context){
