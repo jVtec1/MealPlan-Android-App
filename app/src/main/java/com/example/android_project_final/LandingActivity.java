@@ -3,6 +3,7 @@ package com.example.android_project_final;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -42,7 +43,7 @@ public class LandingActivity extends AppCompatActivity {
             Intent intent = LoginActivity.loginIntentFactory(getApplicationContext());
             startActivity(intent);
         }
-
+        updateSharedPreference();
 
         binding.userButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,8 +58,6 @@ public class LandingActivity extends AppCompatActivity {
                 System.out.println("Admin Button");
             }
         });
-
-
 
     }
 
@@ -76,7 +75,24 @@ public class LandingActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState){
+        super.onSaveInstanceState(outState);
+        outState.putInt(MainActivity.SAVED_INSTANCE_STATE_USERID_KEY, loggedInUserId);
+        updateSharedPreference();
+    }
+
+    private void updateSharedPreference(){
+        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(getString(R.string.preference_file_key),
+                Context.MODE_PRIVATE);
+        SharedPreferences.Editor sharedPrefEditor= sharedPreferences.edit();
+        sharedPrefEditor.putInt(getString(R.string.preference_userId_key),loggedInUserId);
+        sharedPrefEditor.apply();
+    }
+
     private void logout() {
+        loggedInUserId = LOGGED_OUT;
+        updateSharedPreference();
         startActivity(MainActivity.mainActivityIntentFactory(getApplicationContext()));
     }
 
