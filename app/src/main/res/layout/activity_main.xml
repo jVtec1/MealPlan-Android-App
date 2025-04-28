@@ -7,4 +7,43 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
+    <TextView
+        android:id="@+id/homePageHeader"
+        android:layout_width="322dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="CSUMB Meal Planner"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.068" />
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="208dp"
+        android:layout_height="88dp"
+        android:text="Login"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/signUpButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/homePageHeader" />
+
+    <Button
+        android:id="@+id/signUpButton"
+        android:layout_width="208dp"
+        android:layout_height="88dp"
+        android:text="Sign Up"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/homePageHeader" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
