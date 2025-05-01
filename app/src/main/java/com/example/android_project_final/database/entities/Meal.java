@@ -19,8 +19,8 @@ public class Meal {
     private int carbs; // grams
     private int cholesterol; // milligrams
 
-    Meal(String name, double price, int cals, int protein, int fat, int carbs, int cholesterol){
-        this.mealName = name;
+    public Meal(String name, double price, int cals, int protein, int fat, int carbs, int cholesterol){
+        this.mealName = name.toLowerCase();
         this.price = price;
         this.calories = cals;
         this.protein = protein;
