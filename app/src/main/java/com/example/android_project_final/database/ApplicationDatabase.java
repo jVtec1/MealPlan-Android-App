@@ -70,4 +70,5 @@ public abstract class ApplicationDatabase extends RoomDatabase{
 
     public abstract UserDAO userDAO();
     public abstract MealDAO mealDAO();
+    public abstract IngredientsDAO ingredientsDAO();
 }
