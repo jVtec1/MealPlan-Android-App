@@ -11,13 +11,15 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 
 import com.example.android_project_final.MainActivity;
+import com.example.android_project_final.database.entities.Meal;
 import com.example.android_project_final.database.entities.User;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-@Database(entities = {User.class}, version = 1, exportSchema = false)
+@Database(entities = {Meal.class, User.class}, version = 1, exportSchema = false)
 public abstract class ApplicationDatabase extends RoomDatabase{
     public static final String USER_TABLE = "usertable";
+    public static final String MEAL_TABLE = "mealtable";
     private static final String DATABASE_NAME = "ApplicationDatabase";
     private static volatile ApplicationDatabase INSTANCE;
     private static final int NUMBER_OF_THREADS = 4;
@@ -47,15 +49,24 @@ public abstract class ApplicationDatabase extends RoomDatabase{
             Log.i(MainActivity.TAG, "DATABASE CREATED!");
             databaseWriteExecutor.execute(() ->{
                 UserDAO dao = INSTANCE.userDAO();
+                MealDAO mDAO = INSTANCE.mealDAO();
+                mDAO.deleteAll();
                 dao.deleteAll();
                 User admin = new User("admin1", "admin1");
                 admin.setAdmin(true);
                 dao.insert(admin);
                 User testUser1 = new User("testUser1", "testUser1");
                 dao.insert(testUser1);
+                Meal meal = new Meal("pancakes", 5.0, 190,3,5,20,26);
+                mDAO.insert(meal);
+                meal = new Meal("cheeseburger", 9.0, 470,15,14,30,71);
+                mDAO.insert(meal);
+                meal = new Meal("Honey Garlic Chicken", 15.0, 565,58,18,43,191);
+                mDAO.insert(meal);
             });
         }
     };
 
     public abstract UserDAO userDAO();
+    public abstract MealDAO mealDAO();
 }

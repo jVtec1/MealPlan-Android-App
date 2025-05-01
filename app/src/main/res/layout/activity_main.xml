@@ -9,41 +9,60 @@
 
 
     <TextView
-        android:id="@+id/homePageHeader"
-        android:layout_width="322dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="30dp"
+        android:id="@+id/mainTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MAKROS"
+        android:textSize="48sp"
+        android:textColor="#FF5722"
+        android:textStyle="bold"
         android:gravity="center"
-        android:text="CSUMB Meal Planner"
-        android:textSize="32sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:fontFamily="@font/oswald_font"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.068" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="60dp"/>
 
+    <!-- second TextView -->
+    <TextView
+        android:id="@+id/subTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Protein Tracker"
+        android:textSize="24sp"
+        android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:fontFamily="@font/oswald_font"
+        app:layout_constraintTop_toBottomOf="@id/mainTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <!-- sign up -->
     <Button
         android:id="@+id/loginButton"
         android:layout_width="208dp"
         android:layout_height="88dp"
+        android:layout_marginTop="32dp"
         android:text="Login"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/signUpButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homePageHeader" />
+        app:layout_constraintTop_toBottomOf="@+id/subTitle" />
 
     <Button
         android:id="@+id/signUpButton"
         android:layout_width="208dp"
         android:layout_height="88dp"
+        android:layout_marginTop="4dp"
         android:text="Sign Up"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homePageHeader" />
+        app:layout_constraintTop_toBottomOf="@id/loginButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
