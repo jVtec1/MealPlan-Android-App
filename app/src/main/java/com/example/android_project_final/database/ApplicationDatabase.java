@@ -20,6 +20,7 @@ import java.util.concurrent.Executors;
 public abstract class ApplicationDatabase extends RoomDatabase{
     public static final String USER_TABLE = "usertable";
     public static final String MEAL_TABLE = "mealtable";
+    public static final String INGREDIENTS_TABLE = "ingredientstable";
     private static final String DATABASE_NAME = "ApplicationDatabase";
     private static volatile ApplicationDatabase INSTANCE;
     private static final int NUMBER_OF_THREADS = 4;

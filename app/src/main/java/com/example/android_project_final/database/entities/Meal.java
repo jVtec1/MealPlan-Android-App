@@ -12,12 +12,12 @@ public class Meal {
     @PrimaryKey(autoGenerate = true)
     private int mealId; // id that connects to this meal's list of ingredients in the ingredient table
     private String mealName;
-    private double price;
+    private double price; // - delete
     private int calories;
     private int protein; // grams
     private int fat; // grams
     private int carbs; // grams
-    private int cholesterol; // milligrams
+    private int cholesterol; // milligrams - delete this
 
     public Meal(String name, double price, int cals, int protein, int fat, int carbs, int cholesterol){
         this.mealName = name.toLowerCase();
