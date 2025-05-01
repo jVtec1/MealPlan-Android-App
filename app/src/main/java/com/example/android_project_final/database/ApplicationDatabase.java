@@ -18,6 +18,7 @@ import java.util.concurrent.Executors;
 @Database(entities = {User.class}, version = 1, exportSchema = false)
 public abstract class ApplicationDatabase extends RoomDatabase{
     public static final String USER_TABLE = "usertable";
+    public static final String MEAL_TABLE = "mealtable";
     private static final String DATABASE_NAME = "ApplicationDatabase";
     private static volatile ApplicationDatabase INSTANCE;
     private static final int NUMBER_OF_THREADS = 4;
@@ -58,4 +59,5 @@ public abstract class ApplicationDatabase extends RoomDatabase{
     };
 
     public abstract UserDAO userDAO();
+    public abstract MealDAO mealDAO();
 }
