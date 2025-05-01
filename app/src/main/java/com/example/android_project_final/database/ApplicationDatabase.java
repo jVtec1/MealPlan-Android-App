@@ -57,11 +57,11 @@ public abstract class ApplicationDatabase extends RoomDatabase{
                 dao.insert(admin);
                 User testUser1 = new User("testUser1", "testUser1");
                 dao.insert(testUser1);
-                Meal meal = new Meal("pancakes", 5, 190,3,5,20,26);
+                Meal meal = new Meal("pancakes", 5.0, 190,3,5,20,26);
                 mDAO.insert(meal);
-                meal = new Meal("cheeseburger", 9, 470,15,14,30,71);
+                meal = new Meal("cheeseburger", 9.0, 470,15,14,30,71);
                 mDAO.insert(meal);
-                meal = new Meal("Honey Garlic Chicken", 15, 565,58,18,43,191);
+                meal = new Meal("Honey Garlic Chicken", 15.0, 565,58,18,43,191);
                 mDAO.insert(meal);
             });
         }

@@ -1,5 +1,6 @@
 package com.example.android_project_final.database;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
@@ -18,7 +19,7 @@ public interface MealDAO {
     List<Meal> getAllMeals();
 
     @Query("SELECT * FROM " + ApplicationDatabase.MEAL_TABLE + " WHERE mealName = :name ORDER BY mealName ASC")
-    List<Meal> getMealByName(String name);
+    LiveData<Meal> getMealByName(String name);
 
     @Query("DELETE from " + ApplicationDatabase.MEAL_TABLE)
     void deleteAll();

@@ -29,6 +29,16 @@ public class Meal {
         this.cholesterol = cholesterol;
     }
 
+    public Meal(){
+        this.mealName = null;
+        this.price = 0.0;
+        this.calories = 0;
+        this.protein = 0;
+        this.fat = 0;
+        this.carbs = 0;
+        this.cholesterol = 0;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
