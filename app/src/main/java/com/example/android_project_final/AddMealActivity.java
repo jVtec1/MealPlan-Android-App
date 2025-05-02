@@ -19,10 +19,12 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.android_project_final.database.ApplicationDatabase;
 import com.example.android_project_final.database.ApplicationRepository;
 import com.example.android_project_final.database.MealDAO;
+import com.example.android_project_final.database.entities.Ingredients;
 import com.example.android_project_final.database.entities.Meal;
 import com.example.android_project_final.databinding.ActivityAddMealBinding;
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AddMealActivity extends AppCompatActivity {
@@ -35,6 +37,7 @@ public class AddMealActivity extends AppCompatActivity {
     private ApplicationRepository repository;
     private ActivityAddMealBinding binding;
     private MealDAO mealDAO;
+    List<String> ingredients = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,14 +66,45 @@ public class AddMealActivity extends AppCompatActivity {
             Toast.makeText(this, "Error, please fill in all information!", Toast.LENGTH_SHORT).show();
             return;
         }
+        int chicken = 0;
+        int beef = 0;
+        int fish = 0;
+        int rice = 0;
+        int greensA = 0;
+        int greensB = 0;
+        int greensC = 0;
+        if(binding.chickenCheckBox.isChecked()){
+            chicken = 1;
+        }
+        if(binding.beefCheckBox.isChecked()){
+            beef = 1;
+        }
+        if(binding.fishCheckBox.isChecked()){
+            fish = 1;
+        }
+        if(binding.riceCheckBox.isChecked()){
+            rice = 1;
+        }
+        if(binding.greensACheckBox.isChecked()){
+            greensA = 1;
+        }
+        if(binding.greensBCheckBox.isChecked()){
+            greensB = 1;
+        }
+        if(binding.greensCCheckBox.isChecked()){
+            greensC = 1;
+        }
+
+        Ingredients ingredients = new Ingredients(beef, chicken, fish, rice, greensA, greensB, greensC);
+        repository.insertIngredients(ingredients);
 
         int protein = Integer.parseInt(proteinStr);
         int carbs = Integer.parseInt(carbsStr);
         int fats = Integer.parseInt(fatsStr);
         int calories = Integer.parseInt(caloriesStr);
 
-        Meal meal = new Meal(name, 0.0, protein, carbs, fats, calories, 0);
-        mealDAO.insert(meal);
+        Meal meal = new Meal(name, protein, carbs, fats, calories);
+        repository.insertMeal(meal);
 
     }
 //        if(mealNameEditTextView.isEmpty()){
