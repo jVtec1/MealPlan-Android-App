@@ -11,13 +11,17 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 
 import com.example.android_project_final.MainActivity;
+import com.example.android_project_final.database.entities.Ingredients;
+import com.example.android_project_final.database.entities.Meal;
 import com.example.android_project_final.database.entities.User;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-@Database(entities = {User.class}, version = 1, exportSchema = false)
+@Database(entities = {Meal.class, Ingredients.class, User.class}, version = 1, exportSchema = false)
 public abstract class ApplicationDatabase extends RoomDatabase{
     public static final String USER_TABLE = "usertable";
+    public static final String MEAL_TABLE = "mealtable";
+    public static final String INGREDIENTS_TABLE = "ingredientstable";
     private static final String DATABASE_NAME = "ApplicationDatabase";
     private static volatile ApplicationDatabase INSTANCE;
     private static final int NUMBER_OF_THREADS = 4;
@@ -47,15 +51,35 @@ public abstract class ApplicationDatabase extends RoomDatabase{
             Log.i(MainActivity.TAG, "DATABASE CREATED!");
             databaseWriteExecutor.execute(() ->{
                 UserDAO dao = INSTANCE.userDAO();
+                MealDAO mDAO = INSTANCE.mealDAO();
+                IngredientsDAO iDAO = INSTANCE.ingredientsDAO();
+                iDAO.deleteAll();
+                mDAO.deleteAll();
                 dao.deleteAll();
+                // initial users
                 User admin = new User("admin1", "admin1");
                 admin.setAdmin(true);
                 dao.insert(admin);
                 User testUser1 = new User("testUser1", "testUser1");
                 dao.insert(testUser1);
+                // initial meals and connected ingredients list
+                Meal meal = new Meal("Caesar Salad", 90,9,5,9);
+                mDAO.insert(meal);
+                Ingredients ingredients = new Ingredients(0, 1, 0, 0, 1, 1, 0);
+                iDAO.insert(ingredients);
+                meal = new Meal("Sushi", 159,9,7,18);
+                mDAO.insert(meal);
+                ingredients = new Ingredients(0, 0, 1, 1, 1, 0, 1);
+                iDAO.insert(ingredients);
+                meal = new Meal("Honey Garlic Chicken", 565,58,18,43);
+                mDAO.insert(meal);
+                ingredients = new Ingredients(0, 1, 0, 1, 1, 1, 1);
+                iDAO.insert(ingredients);
             });
         }
     };
 
     public abstract UserDAO userDAO();
+    public abstract MealDAO mealDAO();
+    public abstract IngredientsDAO ingredientsDAO();
 }
