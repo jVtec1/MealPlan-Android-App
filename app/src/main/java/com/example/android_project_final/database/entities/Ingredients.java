@@ -15,23 +15,19 @@ public class Ingredients {
     // 0 = false
     // 1 = true - meal has this ingredient
     private int beef;
-    private int pork;
     private int chicken;
     private int fish;
     private int rice;
-    private int bread;
     private int greensA;
     private int greensB;
     private int greensC;
 
 
-    public Ingredients(int beef, int pork, int chicken, int fish, int rice, int bread, int greensA, int greensB, int greensC){
+    public Ingredients(int beef, int chicken, int fish, int rice, int greensA, int greensB, int greensC){
         this.beef = beef;
-        this.pork = pork;
         this.chicken = chicken;
         this.fish = fish;
         this.rice = rice;
-        this.bread = bread;
         this.greensA =greensA;
         this.greensB = greensB;
         this.greensC = greensC;
@@ -39,11 +35,9 @@ public class Ingredients {
 
     public Ingredients(){
         this.beef = 0;
-        this.pork = 0;
         this.chicken = 0;
         this.fish = 0;
         this.rice = 0;
-        this.bread = 0;
         this.greensA = 0;
         this.greensB = 0;
         this.greensC = 0;
@@ -53,12 +47,12 @@ public class Ingredients {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Ingredients that = (Ingredients) o;
-        return getMealId() == that.getMealId() && getBeef() == that.getBeef() && getPork() == that.getPork() && getChicken() == that.getChicken() && getFish() == that.getFish() && getRice() == that.getRice() && getBread() == that.getBread() && getGreensA() == that.getGreensA() && getGreensB() == that.getGreensB() && getGreensC() == that.getGreensC();
+        return getMealId() == that.getMealId() && getBeef() == that.getBeef() && getChicken() == that.getChicken() && getFish() == that.getFish() && getRice() == that.getRice() && getGreensA() == that.getGreensA() && getGreensB() == that.getGreensB() && getGreensC() == that.getGreensC();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getMealId(), getBeef(), getPork(), getChicken(), getFish(), getRice(), getBread(), getGreensA(), getGreensB(), getGreensC());
+        return Objects.hash(getMealId(), getBeef(), getChicken(), getFish(), getRice(), getGreensA(), getGreensB(), getGreensC());
     }
 
     public int getMealId() {
@@ -75,14 +69,6 @@ public class Ingredients {
 
     public void setBeef(int beef) {
         this.beef = beef;
-    }
-
-    public int getPork() {
-        return pork;
-    }
-
-    public void setPork(int pork) {
-        this.pork = pork;
     }
 
     public int getChicken() {
@@ -107,14 +93,6 @@ public class Ingredients {
 
     public void setRice(int rice) {
         this.rice = rice;
-    }
-
-    public int getBread() {
-        return bread;
-    }
-
-    public void setBread(int bread) {
-        this.bread = bread;
     }
 
     public int getGreensA() {
