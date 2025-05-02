@@ -63,15 +63,15 @@ public abstract class ApplicationDatabase extends RoomDatabase{
                 User testUser1 = new User("testUser1", "testUser1");
                 dao.insert(testUser1);
                 // initial meals and connected ingredients list
-                Meal meal = new Meal("Caesar Salad", 5.0, 90,9,5,9,0);
+                Meal meal = new Meal("Caesar Salad", 90,9,5,9);
                 mDAO.insert(meal);
                 Ingredients ingredients = new Ingredients(0, 1, 0, 0, 1, 1, 0);
                 iDAO.insert(ingredients);
-                meal = new Meal("Sushi", 10.0, 159,9,7,18,0);
+                meal = new Meal("Sushi", 159,9,7,18);
                 mDAO.insert(meal);
                 ingredients = new Ingredients(0, 0, 1, 1, 1, 0, 1);
                 iDAO.insert(ingredients);
-                meal = new Meal("Honey Garlic Chicken", 15.0, 565,58,18,43,0);
+                meal = new Meal("Honey Garlic Chicken", 565,58,18,43);
                 mDAO.insert(meal);
                 ingredients = new Ingredients(0, 1, 0, 1, 1, 1, 1);
                 iDAO.insert(ingredients);

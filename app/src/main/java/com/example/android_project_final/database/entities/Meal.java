@@ -12,43 +12,37 @@ public class Meal {
     @PrimaryKey(autoGenerate = true)
     private int mealId; // id that connects to this meal's list of ingredients in the ingredient table
     private String mealName;
-    private double price; // - delete
     private int calories;
     private int protein; // grams
     private int fat; // grams
     private int carbs; // grams
-    private int cholesterol; // milligrams - delete this
 
-    public Meal(String name, double price, int cals, int protein, int fat, int carbs, int cholesterol){
+    public Meal(String name, int cals, int protein, int fat, int carbs){
         this.mealName = name.toLowerCase();
-        this.price = price;
         this.calories = cals;
         this.protein = protein;
         this.fat = fat;
         this.carbs = carbs;
-        this.cholesterol = cholesterol;
     }
 
     public Meal(){
         this.mealName = null;
-        this.price = 0.0;
         this.calories = 0;
         this.protein = 0;
         this.fat = 0;
         this.carbs = 0;
-        this.cholesterol = 0;
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Meal meal = (Meal) o;
-        return mealId == meal.mealId && Double.compare(price, meal.price) == 0 && calories == meal.calories && protein == meal.protein && fat == meal.fat && carbs == meal.carbs && cholesterol == meal.cholesterol && Objects.equals(mealName, meal.mealName);
+        return getMealId() == meal.getMealId() && getCalories() == meal.getCalories() && getProtein() == meal.getProtein() && getFat() == meal.getFat() && getCarbs() == meal.getCarbs() && Objects.equals(getMealName(), meal.getMealName());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(mealId, mealName, price, calories, protein, fat, carbs, cholesterol);
+        return Objects.hash(getMealId(), getMealName(), getCalories(), getProtein(), getFat(), getCarbs());
     }
 
     public int getMealId() {
@@ -65,14 +59,6 @@ public class Meal {
 
     public void setMealName(String mealName) {
         this.mealName = mealName;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
     }
 
     public int getCalories() {
@@ -105,13 +91,5 @@ public class Meal {
 
     public void setCarbs(int carbs) {
         this.carbs = carbs;
-    }
-
-    public int getCholesterol() {
-        return cholesterol;
-    }
-
-    public void setCholesterol(int cholesterol) {
-        this.cholesterol = cholesterol;
     }
 }

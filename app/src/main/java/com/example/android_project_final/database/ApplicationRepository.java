@@ -66,10 +66,20 @@ public class ApplicationRepository {
         return userDAO.getUserByUserId(userId);
     }
 
+    public void insertMeal(Meal meal){
+        ApplicationDatabase.databaseWriteExecutor.execute(() ->{
+            mealDAO.insert(meal);
+        });
+    }
     public LiveData<Meal> getMealByName(String name) {
         return mealDAO.getMealByName(name);
     }
 
+    public void insertIngredients(Ingredients ingredients){
+        ApplicationDatabase.databaseWriteExecutor.execute(() ->{
+            ingredientsDAO.insert(ingredients);
+        });
+    }
     public LiveData<Ingredients> getIngredientsByMealId(int mealId){
         return ingredientsDAO.getIngredientsByMealId(mealId);
     }
