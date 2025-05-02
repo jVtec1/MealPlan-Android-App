@@ -34,6 +34,7 @@ public class AddMealActivity extends AppCompatActivity {
 
     private ApplicationRepository repository;
     private ActivityAddMealBinding binding;
+    private MealDAO mealDAO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
