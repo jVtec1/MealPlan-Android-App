@@ -52,26 +52,27 @@ public class LandingActivity extends AppCompatActivity {
             }
         });
 
-        binding.adminButton.setOnClickListener(new View.OnClickListener() {
+        binding.addMealButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("Admin Button");
+                Intent intent = AddMealActivity.addMealIntentFactory(getApplicationContext());
+                startActivity(intent);
             }
         });
 
     }
 
-    private void showAdmin(){
-        if(user.isAdmin()){
-            binding.adminButton.setVisibility(View.VISIBLE);
-        }
-    }
+//    private void showAdmin(){
+//        if(user.isAdmin()){
+//            binding.adminButton.setVisibility(View.VISIBLE);
+//        }
+//    }
     private void initUser(){
         loggedInUserId = getIntent().getIntExtra(LANDING_ACTIVITY_USER_ID, -1);
         LiveData<User> userObserver = repository.getUserByUserId(loggedInUserId);
         userObserver.observe(this, user -> {
             this.user = user;
-            showAdmin();
+//            showAdmin();
         });
     }
 
