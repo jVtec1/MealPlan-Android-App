@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 //intent factory for sign up page
+                Intent intent = SignUpActivity.signUpFactory(getApplicationContext());
+                startActivity(intent);
             }
         });
 
