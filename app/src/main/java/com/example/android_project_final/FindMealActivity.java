@@ -3,6 +3,7 @@ package com.example.android_project_final;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,9 +20,6 @@ import java.util.List;
 public class FindMealActivity extends AppCompatActivity {
     private ActivityFindMealBinding binding;
     private ApplicationRepository repository;
-    private RecyclerView recyclerView;
-//    private MealAdapter adapter;
-
     private List<Meal> meals;
 
     @Override
@@ -32,19 +30,24 @@ public class FindMealActivity extends AppCompatActivity {
 
         repository = ApplicationRepository.getRepository(getApplication());
 
-//        adapter = new MealAdapter(new ArrayList<>(), FindMealActivity.this);
-//        binding.mealRecyclerView.setLayoutManager(new LinearLayoutManager(FindMealActivity.this));
-//        binding.mealRecyclerView.setAdapter(adapter);
-
-
-        loadMealsFromDB();
-    }
-
-    private void loadMealsFromDB() {
-        meals = repository.getAllMeals();
+        binding.logDisplayTextView.setMovementMethod(new ScrollingMovementMethod());
+        updateDisplay();
 
     }
+    
 
+    private void updateDisplay(){
+        ArrayList<Meal> allLogs = repository.getAllMeals();
+        if(allLogs.isEmpty()){
+            binding.FindMealViewModel.setText("nothing here");
+        }
+        StringBuilder sb = new StringBuilder();
+        for(Meal log : allLogs){
+            sb.append(log);
+        }
+
+        binding.logDisplayTextView.setText(sb.toString());
+    }
 
     public static Intent findMealIntentFactory(Context applicationContext) {
         return new Intent(applicationContext, FindMealActivity.class);

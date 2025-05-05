@@ -1,5 +1,6 @@
 package com.example.android_project_final.database.entities;
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -43,6 +44,13 @@ public class Meal {
     @Override
     public int hashCode() {
         return Objects.hash(getMealId(), getMealName(), getCalories(), getProtein(), getFat(), getCarbs());
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return "Meal: " + mealName + " -- Calories: " + calories + " -- Protein: " + protein + "g -- Fats: " + fat + "g -- Carbs: " + carbs + "g\n\n";
+
     }
 
     public int getMealId() {

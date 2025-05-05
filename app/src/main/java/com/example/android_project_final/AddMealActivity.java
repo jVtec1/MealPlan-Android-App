@@ -97,7 +97,7 @@ public class AddMealActivity extends AppCompatActivity {
         int fats = Integer.parseInt(fatsStr);
         int calories = Integer.parseInt(caloriesStr);
 
-        Meal meal = new Meal(name, protein, carbs, fats, calories);
+        Meal meal = new Meal(name, calories, protein, fats, carbs);
         repository.insertMeal(meal);
 
     }
