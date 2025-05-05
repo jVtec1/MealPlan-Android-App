@@ -2,4 +2,25 @@
     <string name="app_name">android_project_final</string>
     <string name="preference_file_key">daclinkPreferenceFileNameMealPlannerApp</string>
     <string name="preference_userId_key">daclinkPreferenceUserIdKeyMealPlannerApp</string>
+    <string name="add_meal_page">Add Meal Page</string>
+    <string name="meal_name">Meal Name:</string>
+    <string name="enter_meal_name">Enter Meal Name</string>
+    <string name="protein">Protein:</string>
+    <string name="enter_protein_in_grams">Enter protein in Grams</string>
+    <string name="carbs">Carbs:</string>
+    <string name="enter_carbs_in_grams">Enter carbs in Grams</string>
+    <string name="fats">Fats:</string>
+    <string name="enter_fats_in_grams">Enter fats in Grams</string>
+    <string name="calories">Calories:</string>
+    <string name="enter_calories">Enter Calories</string>
+    <string name="ingredients">Ingredients:</string>
+    <string name="chicken">Chicken</string>
+    <string name="beef">Beef</string>
+    <string name="fish">Fish</string>
+    <string name="greens_a">Greens [A]</string>
+    <string name="greens_b">Greens [B]</string>
+    <string name="greens_c">Greens [C]</string>
+    <string name="rice">Rice</string>
+    <string name="submit">Submit</string>
+    <string name="add_a_meal">Add A Meal</string>
 </resources>
