@@ -59,6 +59,10 @@ public class LandingActivity extends AppCompatActivity {
             }
         });
 
+        binding.adminButton.setOnClickListener(v->{
+            startActivity(new Intent(this, WelcomeAdmin.class));
+        });
+
     }
 
     private void showAdmin(){
