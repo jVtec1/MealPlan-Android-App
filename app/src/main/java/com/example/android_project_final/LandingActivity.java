@@ -45,6 +45,12 @@ public class LandingActivity extends AppCompatActivity {
         }
         updateSharedPreference();
 
+        binding.userButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.println("User Button");
+            }
+        });
 
         binding.addMealButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,15 +60,9 @@ public class LandingActivity extends AppCompatActivity {
             }
         });
 
-        binding.findMealButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = FindMealActivity.findMealIntentFactory(getApplicationContext());
-                startActivity(intent);
-            }
-        });
-
-
+//        binding.adminButton.setOnClickListener(v->{
+//            startActivity(new Intent(this, WelcomeAdmin.class));
+//        });
 
     }
 
