@@ -45,10 +45,11 @@ public class LandingActivity extends AppCompatActivity {
         }
         updateSharedPreference();
 
-        binding.userButton.setOnClickListener(new View.OnClickListener() {
+        binding.findMealButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("User Button");
+                Intent intent = FindMealActivity.findMealIntentFactory(getApplicationContext());
+                startActivity(intent);
             }
         });
 

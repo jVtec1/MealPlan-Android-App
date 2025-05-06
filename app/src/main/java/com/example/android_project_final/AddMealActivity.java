@@ -1,6 +1,5 @@
 package com.example.android_project_final;
 
-//import static com.example.android_project_final.database.ApplicationRepository.repository;
 
 import android.content.Context;
 import android.content.Intent;
@@ -28,11 +27,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AddMealActivity extends AppCompatActivity {
-//    public String name;
-//    public float protein;
-//    public float carbs;
-//    public float fats;
-//    public float calories;
 
     private ApplicationRepository repository;
     private ActivityAddMealBinding binding;
@@ -103,16 +97,10 @@ public class AddMealActivity extends AppCompatActivity {
         int fats = Integer.parseInt(fatsStr);
         int calories = Integer.parseInt(caloriesStr);
 
-        Meal meal = new Meal(name, protein, carbs, fats, calories);
+        Meal meal = new Meal(name, calories, protein, fats, carbs);
         repository.insertMeal(meal);
 
     }
-//        if(mealNameEditTextView.isEmpty()){
-//            return;
-//        }
-//        Meal meal = new Meal(mealNameEditTextView, proteinEditTextView, carbsEditTextView, fatsEditTextView, caloriesEditTextView);
-//        repository.insertMeal(meal);
-//    }
 
     public static Intent addMealIntentFactory(Context applicationContext) {
         return new Intent(applicationContext, AddMealActivity.class);
