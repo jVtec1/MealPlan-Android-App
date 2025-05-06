@@ -33,11 +33,12 @@
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_marginTop="42dp"
+        android:hint="@string/enter_meal_name"
+        android:inputType="text"
+        android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/mealNameLabelTextView"
-        app:layout_constraintTop_toBottomOf="@+id/addMealLabelTextView"
-        android:inputType="text"
-        android:hint="@string/enter_meal_name"/>
+        app:layout_constraintTop_toBottomOf="@+id/addMealLabelTextView" />
 
     <TextView
         android:id="@+id/proteinLabelTextView"
@@ -56,6 +57,7 @@
         android:layout_marginTop="120dp"
         android:hint="@string/enter_protein_in_grams"
         android:inputType="number|numberDecimal"
+        android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toEndOf="@+id/mealNameLabelTextView"
@@ -78,6 +80,7 @@
         android:layout_marginTop="200dp"
         android:hint="@string/enter_carbs_in_grams"
         android:inputType="number|numberDecimal"
+        android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toEndOf="@+id/mealNameLabelTextView"
@@ -100,6 +103,7 @@
         android:layout_marginTop="284dp"
         android:hint="@string/enter_fats_in_grams"
         android:inputType="number|numberDecimal"
+        android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toEndOf="@+id/mealNameLabelTextView"
@@ -122,6 +126,7 @@
         android:layout_marginTop="356dp"
         android:hint="@string/enter_calories"
         android:inputType="number|numberDecimal"
+        android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toEndOf="@+id/mealNameLabelTextView"
