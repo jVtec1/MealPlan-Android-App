@@ -5,6 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="24dp"
+
     tools:context=".LandingActivity">
 
     <TextView
@@ -15,6 +17,8 @@
         android:gravity="center"
         android:text="Welcome to your Meal Planner"
         android:textSize="36sp"
+        android:textColor="#333"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,6 +31,7 @@
         android:layout_height="89dp"
         android:text="testuserButton"
         android:textSize="24sp"
+        
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,7 +42,7 @@
         android:id="@+id/addMealButton"
         android:layout_width="211dp"
         android:layout_height="86dp"
-        android:text="@string/add_a_meal"
+        android:text="AddMeal"
         android:textSize="24sp"
 
         app:layout_constraintBottom_toBottomOf="parent"

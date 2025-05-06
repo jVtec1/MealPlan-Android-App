@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -6,33 +5,57 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#121212"
-    tools:context=".WelcomeAdmin">
+    tools:context=".DeleteUserActivity">
+
 
     <TextView
-        android:id="@+id/adminGreeting"
+        android:id="@+id/appTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello Admin"
+        android:text="Delete User"
         android:textSize="36sp"
-        android:textColor="#ffff"
+        android:textColor="#FF5722"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="60dp" />
 
+
+    <EditText
+        android:id="@+id/editTextUserId"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginHorizontal="32dp"
+        android:hint="User ID"
+        android:inputType="text"
+        android:backgroundTint="#FF5722"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#AAAAAA"
+
+        android:padding="16dp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/appTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
     <Button
-        android:id="@+id/deleteUserButton"
+        android:id="@+id/buttonDeleteUser"
         android:layout_width="0dp"
         android:layout_height="70dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="24dp"
         android:layout_marginHorizontal="64dp"
-        android:text="Delete Users"
+        android:text="Delete User"
         android:textSize="24sp"
 
         app:cornerRadius="16dp"
-        app:layout_constraintTop_toBottomOf="@id/adminGreeting"
+        app:layout_constraintTop_toBottomOf="@id/editTextUserId"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

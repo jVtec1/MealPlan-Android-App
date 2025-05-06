@@ -80,6 +80,13 @@ public class ApplicationRepository {
             ingredientsDAO.insert(ingredients);
         });
     }
+
+    public void deleteUserId(int userId){
+        ApplicationDatabase.databaseWriteExecutor.execute(() ->{
+            userDAO.deleteUserById(userId);
+        });
+    }
+
     public LiveData<Ingredients> getIngredientsByMealId(int mealId){
         return ingredientsDAO.getIngredientsByMealId(mealId);
     }

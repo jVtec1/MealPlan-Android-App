@@ -31,4 +31,7 @@ public interface UserDAO {
 
     @Query("DELETE from " + ApplicationDatabase.USER_TABLE)
     void deleteAll();
+
+    @Query("DELETE from " + ApplicationDatabase.USER_TABLE + " WHERE id = :userId")
+    void deleteUserById(int userId);
 }
