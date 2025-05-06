@@ -91,5 +91,20 @@ public class ApplicationRepository {
         return ingredientsDAO.getIngredientsByMealId(mealId);
     }
 
+    public ArrayList<Meal> getAllMeals() {
+        Future<ArrayList<Meal>> future = ApplicationDatabase.databaseWriteExecutor.submit(
+                new Callable<ArrayList<Meal>>() {
+                    @Override
+                    public ArrayList<Meal> call() throws Exception {
+                        return (ArrayList<Meal>) mealDAO.getAllMeals();
+                    }
+                });
+        try {
+            return future.get();
+        } catch (InterruptedException | ExecutionException e) {
+            Log.i(MainActivity.TAG, "Problem when getting all Meals in the repository");
+        }
+        return null;
+    }
 
 }
