@@ -45,7 +45,7 @@ public class AddMealActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 saveMealToDB();
-                Toast.makeText(AddMealActivity.this, "Submitting...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddMealActivity.this, "Submitted, check Find Meal", Toast.LENGTH_SHORT).show();
             }
         });
     }
