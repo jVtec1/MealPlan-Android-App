@@ -60,9 +60,9 @@ public class LandingActivity extends AppCompatActivity {
             }
         });
 
-        binding.adminButton.setOnClickListener(v->{
-            startActivity(new Intent(this, WelcomeAdmin.class));
-        });
+//        binding.adminButton.setOnClickListener(v->{
+//            startActivity(new Intent(this, WelcomeAdmin.class));
+//        });
 
     }
 

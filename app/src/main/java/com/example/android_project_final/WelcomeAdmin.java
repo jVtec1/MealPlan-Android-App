@@ -1,5 +1,7 @@
 package com.example.android_project_final;
 
+
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -15,17 +17,22 @@ public class WelcomeAdmin extends AppCompatActivity {
 
 
     private ActivityWelcomeAdminBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityWelcomeAdminBinding.inflate(getLayoutInflater());
-        setContentView(R.layout.activity_welcome_admin);
+        setContentView(binding.getRoot());
 
         binding.adminGreeting.setText("Hello, Admin");
 
 
-        binding.deleteUserButton.setOnClickListener(v->{
-            startActivity(new Intent(this,DeleteUserActivity.class));
+        binding.deleteUserButton.setOnClickListener(v -> {
+            startActivity(new Intent(this, DeleteUserActivity.class));
         });
+    }
+
+    public static Intent WelcomeAdminFactory(Context context, int userId){
+        return new Intent(context, WelcomeAdmin.class);
     }
 }
