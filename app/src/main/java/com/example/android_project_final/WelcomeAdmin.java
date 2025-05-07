@@ -28,7 +28,8 @@ public class WelcomeAdmin extends AppCompatActivity {
 
 
         binding.deleteUserButton.setOnClickListener(v -> {
-            startActivity(new Intent(this, DeleteUserActivity.class));
+            Intent intent = DeleteUserActivity.DeleteUserActivityFactory(getApplicationContext());
+            startActivity(intent);
         });
     }
 

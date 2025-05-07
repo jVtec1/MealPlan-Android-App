@@ -49,7 +49,7 @@ public class Meal {
     @NonNull
     @Override
     public String toString() {
-        return "Meal: " + mealName + " -- Calories: " + calories + " -- Protein: " + protein + "g -- Fats: " + fat + "g -- Carbs: " + carbs + "g\n\n";
+        return "Meal: " + mealName + " -- MealID: " + mealId + " -- Calories: " + calories + " -- Protein: " + protein + "g -- Fats: " + fat + "g -- Carbs: " + carbs + "g\n\n";
 
     }
 

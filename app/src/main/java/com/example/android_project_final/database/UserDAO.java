@@ -23,8 +23,8 @@ public interface UserDAO {
     @Delete
     void delete(User user);
 
-    @Query("SELECT * FROM " + ApplicationDatabase.USER_TABLE + " ORDER BY username")
-    LiveData<List<User>> getAllUsers();
+    @Query("SELECT * FROM " + ApplicationDatabase.USER_TABLE + " ORDER BY id")
+    List<User> getAllUsers();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(User... user);

@@ -107,4 +107,36 @@ public class ApplicationRepository {
         return null;
     }
 
+    public ArrayList<Ingredients> getAllIngredients() {
+        Future<ArrayList<Ingredients>> future = ApplicationDatabase.databaseWriteExecutor.submit(
+                new Callable<ArrayList<Ingredients>>() {
+                    @Override
+                    public ArrayList<Ingredients> call() throws Exception {
+                        return (ArrayList<Ingredients>) ingredientsDAO.getAllIngredients();
+                    }
+                });
+        try {
+            return future.get();
+        } catch (InterruptedException | ExecutionException e) {
+            Log.i(MainActivity.TAG, "Problem when getting all Ingredients in the repository");
+        }
+        return null;
+    }
+
+    public ArrayList<User> getAllUsers() {
+        Future<ArrayList<User>> future = ApplicationDatabase.databaseWriteExecutor.submit(
+                new Callable<ArrayList<User>>() {
+                    @Override
+                    public ArrayList<User> call() throws Exception {
+                        return (ArrayList<User>) userDAO.getAllUsers();
+                    }
+                });
+        try {
+            return future.get();
+        } catch (InterruptedException | ExecutionException e) {
+            Log.i(MainActivity.TAG, "Problem when getting all Users in the repository");
+        }
+        return null;
+    }
+
 }

@@ -37,7 +37,7 @@ public class User {
     @NonNull
     @Override
     public String toString() {
-        return "User: " + username + "  ID: " + id + "  password: " + password + "  Admin: " + isAdmin();
+        return "User: " + username + "  ID: " + id + "  password: " + password + "  Admin: " + isAdmin() + "\n";
 
     }
 
