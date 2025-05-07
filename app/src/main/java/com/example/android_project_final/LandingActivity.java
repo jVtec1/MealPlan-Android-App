@@ -9,6 +9,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -61,6 +63,12 @@ public class LandingActivity extends AppCompatActivity {
             }
         });
 
+        binding.proteinRecommendationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showProteinRecommendationDialog();
+            }
+        });
 
     }
 
@@ -147,4 +155,44 @@ public class LandingActivity extends AppCompatActivity {
         intent.putExtra(LANDING_ACTIVITY_USER_ID, userId);
         return intent;
     }
+
+    private void showProteinRecommendationDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Enter your weight in pounds");
+
+        final EditText input = new EditText(this);
+        input.setInputType(android.text.InputType.TYPE_CLASS_NUMBER);
+        builder.setView(input);
+
+        builder.setPositiveButton("Calculate", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String weightInput = input.getText().toString().trim();
+                if (!weightInput.isEmpty()) {
+                    try {
+                        int weight = Integer.parseInt(weightInput);
+
+                        int protein = (int) (weight * 0.8);
+                        showProteinResult(protein);
+                    } catch (NumberFormatException e) {
+                        Toast.makeText(LandingActivity.this, "Invalid weight", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(LandingActivity.this, "Enter your weight", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        builder.setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());
+
+        builder.show();
+    }
+    private void showProteinResult(int protein) {
+        new AlertDialog.Builder(this)
+                .setTitle("Protein Recommendation")
+                .setMessage("You should consume at least " + protein + " grams of protein daily")
+                .setPositiveButton("OK", null)
+                .show();
+    }
+
 }
