@@ -42,11 +42,22 @@
         android:id="@+id/addMealButton"
         android:layout_width="211dp"
         android:layout_height="86dp"
-        android:text="AddMeal"
+        android:text="Add Meal"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/findMealButton"
         app:layout_constraintVertical_bias="0.252" />
+
+    <Button
+        android:id="@+id/proteinRecommendationButton"
+        android:layout_width="211dp"
+        android:layout_height="86dp"
+        android:text="Get Daily Protein Rec"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="32dp"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
