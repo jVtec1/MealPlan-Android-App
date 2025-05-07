@@ -4,7 +4,12 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+
+import android.app.Application;
+import android.content.Context;
+
 import com.example.android_project_final.database.entities.Meal;
+import com.example.android_project_final.database.entities.User;
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -41,4 +46,27 @@ public class ExampleUnitTest {
         assertNotEquals(45, meal2.getCarbs());
     }
 
+    @Test
+    public void userConstructorTest(){
+        User user = new User("mario", "ppeach");
+
+        assertFalse(user.isAdmin());
+        assertEquals(user.getUsername(), "mario");
+        assertEquals(user.getPassword(), "ppeach");
+        assertNotEquals(user.getId(), 1);
+    }
+
+    @Test
+    public void userSettersTest(){
+        User user = new User("mario", "ppeach");
+        user.setAdmin(true);
+        user.setId(3);
+        user.setPassword("pass");
+        user.setUsername("luigi");
+
+        assertTrue(user.isAdmin());
+        assertEquals(user.getUsername(), "luigi");
+        assertEquals(user.getPassword(), "pass");
+        assertEquals(user.getId(), 3);
+    }
 }
