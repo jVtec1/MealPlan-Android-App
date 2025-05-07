@@ -31,6 +31,16 @@ public class WelcomeAdmin extends AppCompatActivity {
             Intent intent = DeleteUserActivity.DeleteUserActivityFactory(getApplicationContext());
             startActivity(intent);
         });
+
+        binding.addmealButton.setOnClickListener(v -> {
+            Intent intent = AddMealActivity.addMealIntentFactory(getApplicationContext());
+            startActivity(intent);
+        });
+
+        binding.findmealbutton.setOnClickListener(v -> {
+            Intent intent = FindMealActivity.findMealIntentFactory(getApplicationContext());
+            startActivity(intent);
+        });
     }
 
     public static Intent WelcomeAdminFactory(Context context, int userId){
