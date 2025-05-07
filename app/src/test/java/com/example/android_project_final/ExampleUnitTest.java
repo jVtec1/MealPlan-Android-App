@@ -8,6 +8,7 @@ import static org.junit.Assert.*;
 import android.app.Application;
 import android.content.Context;
 
+import com.example.android_project_final.database.entities.Ingredients;
 import com.example.android_project_final.database.entities.Meal;
 import com.example.android_project_final.database.entities.User;
 
@@ -68,5 +69,43 @@ public class ExampleUnitTest {
         assertEquals(user.getUsername(), "luigi");
         assertEquals(user.getPassword(), "pass");
         assertEquals(user.getId(), 3);
+    }
+
+    @Test
+    public void IngredientConstructorTest() {
+        Ingredients ingredients = new Ingredients(1, 1, 0, 1, 0, 1, 0);
+        assertEquals(1, ingredients.getBeef());
+        assertEquals(1, ingredients.getChicken());
+        assertEquals(0, ingredients.getFish());
+        assertEquals(1, ingredients.getRice());
+        assertEquals(0, ingredients.getGreensA());
+        assertEquals(1, ingredients.getGreensB());
+        assertEquals(0, ingredients.getGreensC());
+
+
+    }
+    @Test
+    public void IngredientsGettersandSettersTest(){
+        Ingredients ing = new Ingredients();
+
+        ing.setMealId(101);
+        ing.setBeef(1);
+        ing.setChicken(0);
+        ing.setFish(1);
+        ing.setRice(0);
+        ing.setGreensA(1);
+        ing.setGreensB(0);
+        ing.setGreensC(1);
+
+        assertEquals(101, ing.getMealId());
+        assertEquals(1, ing.getBeef());
+        assertEquals(0, ing.getChicken());
+        assertEquals(1, ing.getFish());
+        assertEquals(0, ing.getRice());
+        assertEquals(1, ing.getGreensA());
+        assertEquals(0, ing.getGreensB());
+        assertEquals(1, ing.getGreensC());
+
+
     }
 }
