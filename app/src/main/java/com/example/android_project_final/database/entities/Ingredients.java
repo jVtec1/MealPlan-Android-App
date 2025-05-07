@@ -1,5 +1,6 @@
 package com.example.android_project_final.database.entities;
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -53,6 +54,19 @@ public class Ingredients {
     @Override
     public int hashCode() {
         return Objects.hash(getMealId(), getBeef(), getChicken(), getFish(), getRice(), getGreensA(), getGreensB(), getGreensC());
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        String bStr = (beef == 0) ? "False" : "True";
+        String cStr = (chicken == 0) ? "False" : "True";
+        String fStr = (fish == 0) ? "False" : "True";
+        String rStr = (rice == 0) ? "False" : "True";
+        String gaStr = (greensA == 0) ? "False" : "True";
+        String gbStr = (greensB == 0) ? "False" : "True";
+        String gcStr = (greensC == 0) ? "False" : "True";
+        return "Ingredients List -- MealId: " + mealId + " -- Contains Beef: " + bStr + " -- Contains Chicken: " + cStr + " -- Contains Fish: " + fStr + " -- Contains Rice: " + rStr + " -- Contains GreensA: " + gaStr + " -- Contains GreensB: " + gbStr + " -- Contains GreensC: " + gcStr + "\n\n";
     }
 
     public int getMealId() {
@@ -118,4 +132,5 @@ public class Ingredients {
     public void setGreensC(int greensC) {
         this.greensC = greensC;
     }
+
 }

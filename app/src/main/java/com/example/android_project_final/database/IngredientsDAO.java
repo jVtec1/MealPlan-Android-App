@@ -9,6 +9,8 @@ import androidx.room.Query;
 import com.example.android_project_final.database.entities.Ingredients;
 import com.example.android_project_final.database.entities.Meal;
 
+import java.util.List;
+
 @Dao
 public interface IngredientsDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -16,6 +18,9 @@ public interface IngredientsDAO {
 
     @Query("SELECT * FROM " + ApplicationDatabase.INGREDIENTS_TABLE + " WHERE mealId = :mealId")
     LiveData<Ingredients> getIngredientsByMealId(int mealId);
+
+    @Query("SELECT * FROM " + ApplicationDatabase.INGREDIENTS_TABLE)
+    List<Ingredients> getAllIngredients();
 
     @Query("DELETE from " + ApplicationDatabase.INGREDIENTS_TABLE)
     void deleteAll();

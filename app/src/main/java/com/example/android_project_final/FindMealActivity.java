@@ -7,10 +7,9 @@ import android.text.method.ScrollingMovementMethod;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.android_project_final.database.ApplicationRepository;
+import com.example.android_project_final.database.entities.Ingredients;
 import com.example.android_project_final.database.entities.Meal;
 import com.example.android_project_final.databinding.ActivityFindMealBinding;
 
@@ -38,12 +37,14 @@ public class FindMealActivity extends AppCompatActivity {
 
     private void updateDisplay(){
         ArrayList<Meal> allLogs = repository.getAllMeals();
-        if(allLogs.isEmpty()){
+        ArrayList<Ingredients> ingredients = repository.getAllIngredients();
+        if(allLogs.isEmpty() || ingredients.isEmpty()){
             binding.FindMealViewModel.setText("nothing here");
         }
         StringBuilder sb = new StringBuilder();
-        for(Meal log : allLogs){
-            sb.append(log);
+        for(int i = 0; i < allLogs.size(); i++){
+            sb.append(allLogs.get(i));
+            sb.append(ingredients.get(i));
         }
 
         binding.logDisplayTextView.setText(sb.toString());

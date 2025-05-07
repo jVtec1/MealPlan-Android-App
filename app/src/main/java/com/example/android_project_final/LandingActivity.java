@@ -61,17 +61,9 @@ public class LandingActivity extends AppCompatActivity {
             }
         });
 
-//        binding.adminButton.setOnClickListener(v->{
-//            startActivity(new Intent(this, WelcomeAdmin.class));
-//        });
 
     }
 
-//    private void showAdmin(){
-//        if(user.isAdmin()){
-//            binding.adminButton.setVisibility(View.VISIBLE);
-//        }
-//    }
     private void initUser(){
         loggedInUserId = getIntent().getIntExtra(LANDING_ACTIVITY_USER_ID, -1);
         LiveData<User> userObserver = repository.getUserByUserId(loggedInUserId);
